@@ -1,0 +1,25 @@
+<form ng-submit="filter()">
+  <input type="text" placeholder="filter" ng-model="namefilterbefore">
+  <input type="submit"value="filter">
+</form>
+
+
+
+
+<div ng-repeat="product in products | filter: namefilter | limitTo:quantity">
+  <p>{{product.name}}</p>
+  <p>{{product.description}}</p>
+  <p>{{product.qtyleft}} left</p>
+  <img src="{{product.img}}" alt="no IMG available" height="50" width="50">
+</div>
+<a ng-click="showmore()" href="">Show more<a>
+<br>
+<br>
+<h1>Recent orders...</h1>
+<p ng-repeat="order in orders | limitTo:3 | filter: namefilter">{{order._user.name}} purchased {{order.qty}} {{order._product.name}} <span am-time-ago="order.createdAt"></span></p>
+<a href="/#!/orders">Show All<a>
+<br>
+<br>
+<h1>new customers</h1>
+<p ng-repeat="user in users | limitTo:3 | orderBy:'-createdAt'| filter: namefilter">{{user.name}} joined the store on <span am-time-ago="user.createdAt"></span></p>
+<a href="/#!/">Show All<a>

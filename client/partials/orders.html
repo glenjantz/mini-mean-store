@@ -1,0 +1,42 @@
+<h1>Add a new Order</h1>
+<form ng-submit="create()">
+  {{errors.user.message}}
+  {{errors.product.message}}
+  {{errors.qty.message}}
+  {{errors._user.message}}
+  Customer: <select ng-model="newOrder._user">
+              <option ng-repeat="user in users" ng-value="user._id">{{user.name}}</option>
+            </select><br>
+  {{errors.qty.message}}
+  QTY:    <select ng-model="newOrder.qty">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+            </select><br>
+  {{errors._product.message}}
+  Product: <select ng-model="newOrder._product">
+            <option ng-repeat="product in products" ng-value="product._id">{{product.name}}</option>
+           </select>
+           <input type="submit" value="Create Order">
+</form>
+<br>
+<br>
+<input ng-model="orderfilter" type="text" placeholder="filter">
+<table>
+    <thead>
+      <tr>
+        <th>order user</th>
+        <th>order qty</th>
+        <th>product ordererd</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="order in orders | filter: orderfilter">
+        <td>{{order._user.name}}</td>
+        <td>{{order.qty}}</td>
+        <td>{{order._product.name}}</td>
+      </tr>
+    </tbody>
+  </table>

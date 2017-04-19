@@ -1,0 +1,30 @@
+<h1>Add a new Product</h1>
+<form ng-submit="create()">
+  {{errors.name.message}}
+  Name: <input type="text" ng-model="newProduct.name"<br>
+  {{errors.description.message}}
+  Description: <input type="text" ng-model="newProduct.description"<br>
+  {{errors.qtyleft.message}}
+  Inital Quantity: <select ng-model="newProduct.qtyleft">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+  </select><br>
+  IMG: <input type="text" ng-model="newProduct.img" placeholder="image link here">
+  <input type="submit" value="Create">
+</form>
+<br>
+<br>
+
+<input type="text" placeholder="filter by name" ng-model="namefilter.name">
+<div ng-repeat="product in products | filter: namefilter.name | limitTo:quantity">
+  <p>{{product.name}}</p>
+  <p>{{product.description}}</p>
+  <p>{{product.qtyleft}}</p>
+  <img src="{{product.img}}" alt="no IMG available" height="50" width="50">
+</div>
+<form ng-if="status">
+  <a ng-click="showmore()" href="">Show more<a>
+</form>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="moment/moment.js"></script>
+    <script src="angular-moment/angular-moment.js"></script>
+    <script src='/assets/app.js'></script>
+    <script src='/assets/factories/usersFactory.js'></script>
+    <script src='/assets/factories/ordersFactory.js'></script>
+    <script src='/assets/factories/productsFactory.js'></script>
+    <script src='/assets/controllers/newController.js'></script>
+    <script src='/assets/controllers/productController.js'></script>
+    <script src='/assets/controllers/orderController.js'></script>
+    <script src='/assets/controllers/dashController.js'></script>
+  </head>
+  <body>
+    <nav>
+
+      <a href="/#!/dashboard">Dashboard</a> | <a href="/#!/products">Products</a> |<a href="/#!/orders">Orders</a> | <a href="/#!/">Customers</a>
+    </nav>
+    <div ng-view="">
+
+    </div>
+  </body>
+</html>
